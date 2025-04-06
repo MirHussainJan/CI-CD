@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
     push:
-        branches: [main,master]
+        branches: [main, master]
     pull_request:
-        branches: [main,master]
+        branches: [main, master]
     workflow_dispatch:
 
 jobs:
@@ -14,16 +14,16 @@ jobs:
         matrix:
             node-version: [16.x,18.x]
     steps:
-    -name: Checkout Repo
-    uses: actions/checkout@v4
+    - name: Checkout Repo
+      uses: actions/checkout@v4
 
-    -name: Setup Nodejs
-    uses: actions/setup-node@v3
-    with:
+    - name: Setup Nodejs
+      uses: actions/setup-node@v3
+      with:
         node-version:${{matrix.node-version}}
 
-    -name: Installing Depedencies
-    run: npm install
+    - name: Installing Depedencies
+      run: npm install
 
-    -name: Testing App
-    run: npm run test 
+    - name: Testing App
+      run: npm run test 
